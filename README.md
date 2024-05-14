@@ -35,7 +35,7 @@ pip install -r requirements.txt
 2. Run the following command in your terminal:
 
 ```bash
-python app/app.py
+python backend/app.py
 ```
 
 This will start the Flask development server, typically accessible at `http://127.0.0.1:5000/` by default.
@@ -44,14 +44,16 @@ This will start the Flask development server, typically accessible at `http://12
 
 The project follows a common structure for Flask applications:
 
-* **app/**: This folder contains the core application logic.
-    * **models/** (Optional): Folder for custom data models representing data structures (e.g., database tables).
-    * **static/**: Contains static assets like CSS stylesheets and Javascript files.
-    * **templates/**: Stores HTML templates for rendering different pages of the application.
-    * **tests/**: Unit tests to ensure application functionality.
-    * **utils/**: Reusable utility functions for the application.
+* **backend/**: This folder contains the core application logic.
     * **app.py**: The main Flask application script. It handles routing, instantiates extensions, and defines views for the application. 
+    * **process.py**: Functions to process the resume and job description texts.
+    * **suggest.py**: Functions to suggest improvements to the resume based on the job description.
+* **frontend/**: This folder contains the core application logic.
+    * **index.html**: The main HTML template for the application.
+    * **style.css**: CSS styles for the application.
+    * **script.js**: JavaScript code for the application. 
 * **notebooks/**: Jupyter notebooks used for experimentation.
+* **tests/**: Unit tests for the application.
 * **.gitignore**: Files or folders that should be excluded from version control using Git.
 * **Dockerfile**: Instructions for building a Docker image.
 * **requirements.txt**: Lists dependencies needed to run the application.
