@@ -42,7 +42,7 @@ python backend/app.py
 
 ```bash
 cd ../frontend
-index.html
+open index.html
 ```
 
 **Project Structure:**
