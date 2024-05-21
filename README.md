@@ -32,13 +32,18 @@ pip install -r requirements.txt
 **Running the Application:**
 
 1. Ensure you have Python and dependencies installed.
-2. Run the following command in your terminal:
+2. Open the terminal and start the backend server.
 
 ```bash
 python backend/app.py
 ```
 
-This will start the Flask development server, typically accessible at `http://127.0.0.1:5000/` by default.
+3. In another terminal, navigate to the frontend page and open the `index/html`
+
+```bash
+cd ../frontend
+index.html
+```
 
 **Project Structure:**
 
