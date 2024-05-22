@@ -1,0 +1,23 @@
+I'm looking to tailor my resume to better align with the requirements and qualifications for a specific job position.
+Based on the following resume and job description, please provide your recommendations in JSON format:
+
+Resume: {resume_text}
+
+Job Description: {job_description}
+
+Please return a JSON object with the following keys:
+
+"summary" (string): A concise summary highlighting the most relevant qualifications for the job.
+"skills" (array of strings): A list of skills that should be emphasized based on the job description.
+"experience" (array of objects): A list of relevant experience, with each object containing the following keys:
+  - "role" (string): The job title or role
+  - "description" (string): A brief description of the responsibilities and accomplishments relevant to the job
+  - "company" (string): The company name
+  - "duration" (string): The duration of employment (e.g., "Jan 2018 - Present")
+"education" (array of objects): A list of relevant education, with each object containing the following keys:
+  - "degree" (string): The degree or certification obtained
+  - "institution" (string): The name of the educational institution
+  - "duration" (string): The duration of study (e.g., "Aug 2014 - May 2018")
+"certifications" (array of strings): A list of relevant certifications or licenses.
+Please ensure that the JSON response adheres to this structure, and provide detailed and tailored information
+based on the provided resume and job description.
