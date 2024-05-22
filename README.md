@@ -27,7 +27,18 @@ Next, install the dependencies using pip:
 
 ```bash
 pip install -r requirements.txt
+pip install -q -U google-generativeai
 ```
+
+**Gemini API Key**
+
+To use the Gemini API, you need to sign up for an API key at [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey). Once you have the API key, create a `.env` file in the `backend/` folder and add the following line:
+
+```bash
+GEMINI_API_KEY=YOUR_API_KEY
+```
+
+You can also set the environment variable directly in your terminal, or pass it to the application.
 
 **Running the Application:**
 
@@ -66,7 +77,7 @@ The project follows a common structure for Flask applications:
 ### Future Development
 
 1. Add feature to parse PDF file for resume.
-2. Connect to OpenAI GPT-3 for generating resume suggestions.
+2. Connect to Gemini API to suggest improvements.
 3. Improve the UI/UX of the application.
 
 ### License
