@@ -65,7 +65,9 @@ The project follows a common structure for Flask applications:
 
 ### Future Development
 
-* TBD
+1. Add feature to parse PDF file for resume.
+2. Connect to OpenAI GPT-3 for generating resume suggestions.
+3. Improve the UI/UX of the application.
 
 ### License
 
