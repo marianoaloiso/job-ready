@@ -1,5 +1,7 @@
 from gemini_client import generate_response
 import os
+import fitz  # PyMuPDF
+
 
 def load_tailor_resume_prompt() -> str:
     """
@@ -34,4 +36,15 @@ def process(
     response = generate_response(prompt, gemini_api_key)
     return response
 
-
+def extract_text_from_pdf(pdf_path: str) -> str:
+    """
+    Extract text from a PDF file.
+    :param pdf_path: str: Path to the PDF file
+    :return: str: Extracted text
+    """
+    doc = fitz.open(pdf_path)
+    text = ""
+    for page_num in range(len(doc)):
+        page = doc.load_page(page_num)
+        text += page.get_text()
+    return text
