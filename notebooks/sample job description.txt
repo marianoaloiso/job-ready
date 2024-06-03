@@ -1,0 +1,33 @@
+Job Purpose and Core Tasks
+
+The Senior Data Scientist will be responsible for developing and implementing advanced analytics models and algorithms to support the company’s data-driven initiatives. The ideal candidate will have a strong background in machine learning, statistical modeling, and data analysis, as well as experience working with large datasets in a healthcare or medical device setting.
+
+Responsibilities:
+
+    Formulating, suggesting, and managing data-driven projects which are geared at furthering the business's interests.
+    Work closely with cross-functional teams to identify and prioritize business problems that can be solved using data analytics.
+    Analyze large datasets from 3rd party vendors to identify trends, patterns, and insights that can be used to drive business decisions.
+    Develop and maintain predictive models to support forecasting budgets for research and planning activities for clinical trials and real-world projects.
+    Collaborate with IT to integrate analytics models into production systems.
+    Communicate findings and insights to stakeholders across the organization.
+    Selecting and employing advanced statistical procedures to obtain actionable insights.
+    Cross-validating models to ensure their generalizability.
+    Producing and disseminating non-technical reports that detail the successes and limitations of each project.
+    Suggesting ways in which insights obtained might be used to inform business strategies.
+    Staying informed about developments in Data Science and adjacent fields to ensure that outputs are always relevant.
+
+Minimum Knowledge, Education and Skill Requirements
+
+Required
+
+Minimum years of relevant work experience: 5+ years of experience in data science and bio-statistical modeling.
+
+Minimum education, certifications and/or credentials: Advanced degree in data science, bio-statistics, computer science, or similar.
+
+Minimum hard skill requirements (including computer and application proficiency):
+
+Experience with data visualization tools such as Tableau, Power BI, or D3.js.
+Experience using biostatistical programs such as SAS, SPSS, or R
+
+Experience working with large datasets in a healthcare or medical device setting.
+Strong programming skills in Python, R, or similar languages.
