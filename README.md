@@ -30,7 +30,9 @@ Before installing requirements.txt, you need to download and install Microsoft C
 During the installation, select the "Desktop development with C++" workload. Ensure that the "MSVC v142 - VS 2019 C++ x64/x86 build tools" are selected.
 
 
-**Both MacOS and Windows** Next, install the dependencies using pip, :
+**Both MacOS and Windows** 
+
+Next, install the dependencies using pip, :
 
 ```bash
 pip install -r requirements.txt
