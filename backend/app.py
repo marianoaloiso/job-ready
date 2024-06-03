@@ -4,7 +4,7 @@ from process import process, extract_text_from_pdf
 import os
 
 app = Flask(__name__, static_folder='static')
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/')
 def index():
@@ -19,19 +19,20 @@ def process_request():
     if file.filename == '':
         return jsonify({'error': 'No selected file'}), 400
 
+    resume_text = ""
     if file and file.filename.endswith('.pdf'):
         resume_text = extract_text_from_pdf(file)
     else:
-        resume_text = request.form.get('resume')
+        return jsonify({'error': 'Unsupported file type'}), 400
 
     job_description = request.form.get('jobDescription')
-    openai_api_key = request.form.get('apiKey')
+    api_key = request.form.get('apiKey')
 
-    if not resume_text or not job_description or not openai_api_key:
+    if not resume_text or not job_description or not api_key:
         return jsonify({'error': 'Missing data'}), 400
 
     try:
-        result = process(resume_text, job_description, openai_api_key)
+        result = process(resume_text, job_description, api_key)
         return jsonify({'result': result})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
