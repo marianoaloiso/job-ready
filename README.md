@@ -23,7 +23,14 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-Next, install the dependencies using pip:
+**For Windows**
+
+Before installing requirements.txt, you need to download and install Microsoft C++ Build Tools at https://visualstudio.microsoft.com/visual-cpp-build-tools/
+
+During the installation, select the "Desktop development with C++" workload. Ensure that the "MSVC v142 - VS 2019 C++ x64/x86 build tools" are selected.
+
+
+**Both MacOS and Windows** Next, install the dependencies using pip, :
 
 ```bash
 pip install -r requirements.txt
