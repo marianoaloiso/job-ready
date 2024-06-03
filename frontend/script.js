@@ -1,64 +1,65 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const apiKeyInput = document.getElementById('apiKey');
-    const jobDescriptionInput = document.getElementById('jobDescription');
-    const fileInput = document.getElementById('file');
-    const runButton = document.getElementById('runButton');
-    const spinner = document.getElementById('spinner');
-    const result = document.getElementById('result');
-  
-    function checkFields() {
-      const allFieldsFilled = apiKeyInput.value && jobDescriptionInput.value && fileInput.files.length > 0;
-      runButton.disabled = !allFieldsFilled;
-      runButton.style.backgroundColor = allFieldsFilled ? '#007bff' : '#ccc';
+  const apiKeyInput = document.getElementById('apiKey');
+  const jobDescriptionInput = document.getElementById('jobDescription');
+  const fileInput = document.getElementById('file');
+  const runButton = document.getElementById('runButton');
+  const spinner = document.getElementById('spinner');
+  const result = document.getElementById('result');
+
+  function checkFields() {
+    const allFieldsFilled = apiKeyInput.value && jobDescriptionInput.value && fileInput.files.length > 0;
+    runButton.disabled = !allFieldsFilled;
+    runButton.style.backgroundColor = allFieldsFilled ? '#007bff' : '#ccc';
+  }
+
+  apiKeyInput.addEventListener('input', checkFields);
+  jobDescriptionInput.addEventListener('input', checkFields);
+  fileInput.addEventListener('change', checkFields);
+
+  runButton.addEventListener('click', function(event) {
+    const apiKey = apiKeyInput.value;
+    const jobDescription = jobDescriptionInput.value;
+    const file = fileInput.files[0];
+
+    if (!apiKey || !jobDescription || !file) {
+      event.preventDefault();
+      alert('Please fill in all fields.');
+      return;
     }
-  
-    apiKeyInput.addEventListener('input', checkFields);
-    jobDescriptionInput.addEventListener('input', checkFields);
-    fileInput.addEventListener('change', checkFields);
-  
-    runButton.addEventListener('click', function(event) {
-      const apiKey = apiKeyInput.value;
-      const jobDescription = jobDescriptionInput.value;
-      const file = fileInput.files[0];
-  
-      if (!apiKey || !jobDescription || !file) {
-        event.preventDefault();
-        alert('Please fill in all fields.');
-        return;
+
+    const formData = new FormData();
+    formData.append('apiKey', apiKey);
+    formData.append('jobDescription', jobDescription);
+    formData.append('file', file);
+
+    runButton.classList.add('hidden');
+    spinner.style.display = 'block';
+    result.innerHTML = '';
+
+    fetch('http://localhost:5000/process', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {  
+      if (data.result) {
+        const jsonString = data.result.match(/\{.*\}/s)[0];
+        const jsonData = JSON.parse(jsonString);
+        displayParsedJSON(jsonData);
+      } else if (data.error) {
+        result.innerText = 'Error: ' + data.error;
       }
-  
-      const formData = new FormData();
-      formData.append('apiKey', apiKey);
-      formData.append('jobDescription', jobDescription);
-      formData.append('file', file);
-  
-      spinner.style.display = 'block';
-      result.innerHTML = '';
-  
-      fetch('http://localhost:5000/process', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        spinner.style.display = 'none';
-  
-        if (data.result) {
-          const jsonString = data.result.match(/\{.*\}/s)[0];
-          const jsonData = JSON.parse(jsonString);
-          displayParsedJSON(jsonData);
-        } else if (data.error) {
-          result.innerText = 'Error: ' + data.error;
-        }
-      })
-      .catch(error => {
-        spinner.style.display = 'none';
-        console.error('Error:', error);
-        result.innerText = 'Error: ' + error.message;
-      });
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      result.innerText = 'Error: ' + error.message;
+    })
+    .finally(() => {
+      spinner.style.display = 'none';
+      runButton.classList.remove('hidden');
     });
   });
-  
+});
 
 function displayParsedJSON(data) {
     const resultDiv = document.getElementById('result');
