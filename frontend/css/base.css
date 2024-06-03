@@ -1,5 +1,4 @@
 body {
-    font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
@@ -11,7 +10,14 @@ body {
 }
 
 ::placeholder {
-    font-family: 'Arial', sans-serif;
     color: #999999;
     font-style: italic;
+}
+
+:root {
+  --primary-font: Arial, sans-serif;
+  --header-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --primary-color: #333333;
+  --secondary-color: #666666;
+  --accent-color: #007bff;
 }

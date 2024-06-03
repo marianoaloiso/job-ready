@@ -1,4 +1,21 @@
-#result {
-    margin-top: 20px;
-    text-align: left;
+#result > div {
+  background-color: var(--color-background-alt);
+  border-radius: 4px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-small);
 }
+
+  
+#result h3 {
+    color: #007bff; 
+    border-bottom: 1px solid #007bff;
+    padding-bottom: 5px;
+  }
+
+#resultSeparator {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 40px 0;
+    width: 100%;
+  }

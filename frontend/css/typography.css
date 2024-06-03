@@ -1,20 +1,160 @@
-h1 {
-    color: #333333;
-    margin-bottom: 20px;
-    font-size: 32px;
-    font-weight: bold;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap');
+
+/* CSS Variables for easy theming */
+:root {
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  
+  --color-primary: #333333;
+  --color-secondary: #666666;
+  --color-accent-1: #007bff;
+  --color-accent-2: #00bcd4;
+  --color-background: #ffffff;
+  --color-background-alt: #f8f9fa;
+
+  --shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-p {
-    color: #666666;
-    margin-bottom: 20px;
+/* Base Typography */
+body {
+    font-family: var(--font-body);
     line-height: 1.6;
+    color: var(--color-primary);
+    background-color: var(--color-background);
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  h1 { 
+    font-size: calc(2rem + 1.5vw);
+    font-weight: 800;
+    background: linear-gradient(45deg, var(--color-accent-1), var(--color-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  
+  h2 { 
+    font-size: calc(1.5rem + 0.5vw);
+    font-weight: 700;
+    color: var(--color-accent-1);
+  }
+  
+  h3 { 
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-accent-2);
+  }
+  
+  h4 { 
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+/* Body Text */
+p {
+    color: var(--color-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+/* Inline Elements */
+strong { 
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  
+  em { font-style: italic; }
+  
+  a { 
+    color: var(--color-accent-1);
+    text-decoration: none;
+  }
+  
+  a:hover { text-decoration: underline; }  
+
+/* Lists */
+ul {
+    padding-left: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  li { margin-bottom: 0.5rem; }
+  
+  /* Form Elements */
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  input, textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--color-accent-1);
+    border-radius: 4px;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-accent-2);
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+  }
+
+/* Result Sections */
+#result > div {
+  background-color: var(--color-background-alt);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-small);
+  transition: box-shadow 0.3s;
 }
 
-label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    color: #333333;
-    font-weight: bold;
+#result > div:hover {
+  box-shadow: var(--shadow-large);
+}
+
+/* Animation (Optional) */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2, #result > div {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+h2 { animation-delay: 0.2s; }
+#result > div { animation-delay: 0.4s; }
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  h1 { font-size: calc(2rem + 1.5vw); }
+  h2 { font-size: calc(1.25rem + 0.5vw); }
+  h3 { font-size: calc(1.125rem + 0.25vw); }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 0.875rem; }
+  h1::after { width: 75%; }
+  #result > div { padding: 1rem; }
+}
+
+/* Print Styles (Optional) */
+@media print {
+  body { font-size: 12pt; line-height: 1.4; color: #000; }
+  h1, h2, h3, h4 { color: #000; break-after: avoid; }
+  a { text-decoration: underline; color: #000; }
+  #result > div { box-shadow: none; border: 1px solid #000; break-inside: avoid; }
 }
