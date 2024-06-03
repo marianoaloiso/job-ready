@@ -45,11 +45,15 @@ function displayParsedJSON(data) {
     resultDiv.innerHTML = '';
 
     const summary = document.createElement('p');
-    summary.textContent = `Summary: ${data.summary}`;
+
+    summary.innerHTML = `<strong>Summary:</strong> ${data.summary}`;
+    summary.style.color = "#333";
     resultDiv.appendChild(summary);
 
     const skills = document.createElement('p');
-    skills.textContent = `Skills: ${data.skills.join(', ')}`;
+    skills.innerHTML = `<strong>Skills:</strong> ${data.skills.join(', ')}`;
+    skills.style.color = "#333";
+
     resultDiv.appendChild(skills);
 
     const experience = document.createElement('div');
@@ -80,7 +84,13 @@ function displayParsedJSON(data) {
     resultDiv.appendChild(education);
 
     const certifications = document.createElement('p');
-    certifications.textContent = `Certifications: ${data.certifications.join(', ') || 'None'}`;
+
+    certifications.innerHTML = `<strong>Certifications:</strong> ${data.certifications.join(', ') || 'None'}`;
+    certifications.style.color = "#333";
     resultDiv.appendChild(certifications);
+
+    const thankYouMessage = document.createElement('p');
+    thankYouMessage.textContent = "Thanks for using Resume Optimizer! Tell your friends!";
+    resultDiv.appendChild(thankYouMessage);
 }
 
