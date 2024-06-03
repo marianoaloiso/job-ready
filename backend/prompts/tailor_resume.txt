@@ -1,23 +1,48 @@
-I'm looking to tailor my resume to better align with the requirements and qualifications for a specific job position.
-Based on the following resume and job description, please provide your recommendations in JSON format:
+I'm looking to tailor my resume to better align with the requirements and qualifications for a specific job position. Please analyze my resume against the job description and provide actionable recommendations to improve my chances.
 
 Resume: {resume_text}
-
 Job Description: {job_description}
 
 Please return a JSON object with the following keys:
 
-"summary" (string): A concise summary highlighting the most relevant qualifications for the job.
-"skills" (array of strings): A list of skills that should be emphasized based on the job description.
-"experience" (array of objects): A list of relevant experience, with each object containing the following keys:
-  - "role" (string): The job title or role
-  - "description" (string): A brief description of the responsibilities and accomplishments relevant to the job
-  - "company" (string): The company name
-  - "duration" (string): The duration of employment (e.g., "Jan 2018 - Present")
-"education" (array of objects): A list of relevant education, with each object containing the following keys:
-  - "degree" (string): The degree or certification obtained
-  - "institution" (string): The name of the educational institution
-  - "duration" (string): The duration of study (e.g., "Aug 2014 - May 2018")
-"certifications" (array of strings): A list of relevant certifications or licenses.
-Please ensure that the JSON response adheres to this structure, and provide detailed and tailored information
-based on the provided resume and job description.
+"summary" (object):
+  - "strengths" (string): A concise summary of my most relevant qualifications that align well with the job.
+  - "gaps" (string): Key requirements from the job description that are missing or underdeveloped in my resume.
+  - "advice" (string): Specific advice on how to modify my professional summary or objective statement.
+
+"skills" (object):
+  - "matching" (array of strings): Skills in my resume that directly match the job requirements.
+  - "missing" (array of strings): Critical skills from the job description that are absent from my resume.
+  - "suggestions" (array of strings): Ways to acquire or demonstrate the missing skills (e.g., "Complete an online course in Agile methodologies").
+
+"experience" (array of objects): For each relevant job, provide:
+  - "role" (string): The job title or role.
+  - "alignment" (string): How this role aligns with the target job.
+  - "current" (string): Current description from my resume.
+  - "improved" (string): Rewritten description emphasizing relevant achievements and using keywords from the job description.
+  - "metrics" (string): Suggestions to quantify achievements (e.g., "Add the percentage increase in sales").
+
+"projects" (array of objects): Key projects that showcase relevant skills:
+  - "title" (string): Project name.
+  - "relevance" (string): Why this project matters for the job.
+  - "skills" (array of strings): Key skills demonstrated.
+  - "highlight" (string): How to best present this project.
+
+"education" (object):
+  - "relevance" (string): How my education aligns with the job.
+  - "coursework" (array of strings): Specific courses or majors to highlight.
+  - "suggestion" (string): Any educational improvements to consider (e.g., "Consider adding your Data Structures course").
+
+"certifications" (object):
+  - "relevant" (array of strings): Certifications that boost my candidacy.
+  - "recommended" (array of strings): Suggested certifications to pursue.
+
+"keywords" (array of strings): Important terms from the job description to incorporate throughout my resume.
+
+"formatting" (array of strings): Suggestions to enhance resume layout and readability.
+
+"action_verbs" (array of strings): Impactful verbs from the job description to use in my experience section.
+
+"additional_sections" (array of strings): Suggestions for new sections to add (e.g., "Create a 'Technical Projects' section").
+
+Please ensure the JSON response adheres to this structure. Offer specific, data-driven advice to tailor my resume, making it more compelling for this particular job. Focus on actionable improvements that will significantly boost my candidacy.
