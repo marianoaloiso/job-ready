@@ -113,8 +113,8 @@ button:active {
 .api-key-input input:focus {
     border-color: #007BFF;
     outline: none;
-}
 
 ::placeholder {
     font-family: 'Arial', sans-serif;
+
 }

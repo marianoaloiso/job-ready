@@ -16,10 +16,10 @@
             instant suggestions on how to tailor your resume towards the job. To access our 
             services, you will need to provide your own Gemini API Key, which you can find or create
             <a href=https://aistudio.google.com/app/apikey>here</a>. Happy resume crafting!</p>
-        
+
         <div class="api-key-input">
             <label for="apiKey">Gemini API Key:</label>
-            <input type="text" id="apiKey" name="apiKey" placeholder="Enter your Gemini API key..." required>
+            <input type="password" id="apiKey" name="apiKey" placeholder="Enter your Gemini API key..." required>
         </div>
 
         <div class="pdf-upload">
@@ -31,8 +31,8 @@
             <label for="jobDescription">Job Description:</label>
             <textarea id="jobDescription" name="jobDescription" placeholder="Paste job description here..." required></textarea>
         </div>
-
         <button id="runButton">Run</button>
+        <div id="spinner" class="spinner" style="display:none;"></div>
         <div id="result">
             <!-- The processed result will be displayed here -->
         </div>
@@ -41,3 +41,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+

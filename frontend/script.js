@@ -1,13 +1,43 @@
-document.getElementById('runButton').addEventListener('click', function() {
-    fetch('../notebooks/sample_output.txt')
-        .then(response => response.text())
-        .then(data => {
-            const jsonString = data.match(/\{.*\}/s)[0];
-            const jsonData = JSON.parse(jsonString);
-            
-            displayParsedJSON(jsonData);
+document.getElementById('runButton').addEventListener('click', function () {
+    const apiKey = document.getElementById('apiKey').value;
+    const jobDescription = document.getElementById('jobDescription').value;
+    const file = document.getElementById('file').files[0];
+    const spinner = document.getElementById('spinner');
+
+    if (apiKey && jobDescription && file) {
+        const formData = new FormData();
+        formData.append('apiKey', apiKey);
+        formData.append('jobDescription', jobDescription);
+        formData.append('file', file);
+
+        // Show the spinner and clear previous results
+        spinner.style.display = 'block';
+        result.innerHTML = ''; 
+
+        fetch('http://localhost:5000/process', {
+            method: 'POST',
+            body: formData
         })
-        .catch(error => console.error('Error fetching the JSON:', error));
+        .then(response => response.json())
+        .then(data => {
+            spinner.style.display = 'none';
+            
+            if (data.result) {
+                const jsonString = data.result.match(/\{.*\}/s)[0];
+                const jsonData = JSON.parse(jsonString);
+                displayParsedJSON(jsonData);
+            } else if (data.error) {
+                result.innerText = 'Error: ' + data.error;
+            }
+        })
+        .catch(error => {
+            spinner.style.display = 'none';
+            console.error('Error:', error);
+            document.getElementById('result').innerText = 'Error: ' + error.message;
+        });
+    } else {
+        alert('Please fill in all fields.');
+    }
 });
 
 function displayParsedJSON(data) {
@@ -15,6 +45,7 @@ function displayParsedJSON(data) {
     resultDiv.innerHTML = '';
 
     const summary = document.createElement('p');
+
     summary.innerHTML = `<strong>Summary:</strong> ${data.summary}`;
     summary.style.color = "#333";
     resultDiv.appendChild(summary);
@@ -22,6 +53,7 @@ function displayParsedJSON(data) {
     const skills = document.createElement('p');
     skills.innerHTML = `<strong>Skills:</strong> ${data.skills.join(', ')}`;
     skills.style.color = "#333";
+
     resultDiv.appendChild(skills);
 
     const experience = document.createElement('div');
@@ -52,6 +84,7 @@ function displayParsedJSON(data) {
     resultDiv.appendChild(education);
 
     const certifications = document.createElement('p');
+
     certifications.innerHTML = `<strong>Certifications:</strong> ${data.certifications.join(', ') || 'None'}`;
     certifications.style.color = "#333";
     resultDiv.appendChild(certifications);
@@ -60,3 +93,4 @@ function displayParsedJSON(data) {
     thankYouMessage.textContent = "Thanks for using Resume Optimizer! Tell your friends!";
     resultDiv.appendChild(thankYouMessage);
 }
+

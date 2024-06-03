@@ -85,9 +85,7 @@ The project follows a common structure for Flask applications:
 
 ### Future Development
 
-1. Add feature to parse PDF file for resume.
-2. Connect to Gemini API to suggest improvements.
-3. Improve the UI/UX of the application.
+1. Improve the UI/UX of the application.
 
 ### License
 
