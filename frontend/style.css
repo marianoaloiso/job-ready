@@ -71,6 +71,17 @@ button:active {
     background-color: #003f7f;
 }
 
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:disabled:hover,
+button:disabled:active {
+    background-color: #ccc;
+}
+
+
 .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     width: 36px;
@@ -113,8 +124,19 @@ button:active {
 .api-key-input input:focus {
     border-color: #007BFF;
     outline: none;
+}
+
+.upload-section,
+.job-description-section {
+  margin-bottom: 2em;
+}
+
+.upload-section h2,
+.job-description-section h2 {
+  margin-bottom: 1em;
+  color: #333333;
+}
 
 ::placeholder {
     font-family: 'Arial', sans-serif;
-
 }

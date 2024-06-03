@@ -9,33 +9,38 @@
 <body>
     <div class="container">
         <h1>Resume Optimizer</h1>
-        <h3>Optimize your resume to match the job description</h3>
+        <h2>Optimize your resume for the job</h2>
 
         <p>Hello, and welcome to Resume Optimizer! The concept is simple, take your current resume 
             and any job description that you may want to pursue, and we will provide nearly 
             instant suggestions on how to tailor your resume towards the job. To access our 
             services, you will need to provide your own Gemini API Key, which you can find or create
-            <a href=https://aistudio.google.com/app/apikey>here</a>. Happy resume crafting!</p>
+        <a href="https://aistudio.google.com/app/apikey">here</a>. Happy resume crafting!</p>
+        
+        <section class="upload-section">
+            <h2>Upload Files</h2>
+            <div class="api-key-input">
+                <label for="apiKey">Gemini API Key:</label>
+                <input type="password" id="apiKey" name="apiKey" placeholder="Enter your Gemini API key..." required>
+            </div>
 
-        <div class="api-key-input">
-            <label for="apiKey">Gemini API Key:</label>
-            <input type="password" id="apiKey" name="apiKey" placeholder="Enter your Gemini API key..." required>
-        </div>
+            <div class="pdf-upload">
+                <label for="file">Upload Resume (PDF):</label>
+                <input type="file" id="file" name="file" accept="application/pdf">
+            </div>
+        </section>
 
-        <div class="pdf-upload">
-            <label for="file">Upload Resume PDF:</label>
-            <input type="file" id="file" name="file" accept="application/pdf">
-        </div>
+        <section class="job-description-section">
+            <h2>Job Description</h2>
+            <div class="job-description-input">
+                <label for="jobDescription">Paste job description here:</label>
+                <textarea id="jobDescription" name="jobDescription" placeholder="Paste job description..." required></textarea>
+            </div>
+        </section>
 
-        <div class="job-description-input">
-            <label for="jobDescription">Job Description:</label>
-            <textarea id="jobDescription" name="jobDescription" placeholder="Paste job description here..." required></textarea>
-        </div>
-        <button id="runButton">Run</button>
+        <button id="runButton" disabled>Run Analysis</button>
         <div id="spinner" class="spinner" style="display:none;"></div>
-        <div id="result">
-            <!-- The processed result will be displayed here -->
-        </div>
+        <div id="result"></div>
     </div>
 
     <script src="script.js"></script>
