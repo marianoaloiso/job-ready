@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const runButton = document.getElementById('runButton');
   const spinner = document.getElementById('spinner');
   const result = document.getElementById('result');
+  const uploadButton = document.querySelector('.upload-button');
 
   function checkFields() {
     const allFieldsFilled = apiKeyInput.value && jobDescriptionInput.value && fileInput.files.length > 0;
@@ -14,7 +15,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   apiKeyInput.addEventListener('input', checkFields);
   jobDescriptionInput.addEventListener('input', checkFields);
-  fileInput.addEventListener('change', checkFields);
+  fileInput.addEventListener('change', function() {
+    checkFields();
+    if (fileInput.files && fileInput.files.length > 0) {
+      uploadButton.textContent = 'Resume Uploaded';
+      uploadButton.classList.add('uploaded');
+    } else {
+      uploadButton.textContent = 'Upload Resume (PDF)';
+      uploadButton.classList.remove('uploaded');
+    }
+  });
 
   runButton.addEventListener('click', function(event) {
     const apiKey = apiKeyInput.value;
@@ -46,13 +56,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const jsonString = data.result.match(/\{.*\}/s)[0];
         const jsonData = JSON.parse(jsonString);
         displayParsedJSON(jsonData);
+        result.scrollIntoView({ behavior: 'smooth' });
       } else if (data.error) {
         result.innerText = 'Error: ' + data.error;
+        result.scrollIntoView({ behavior: 'smooth' }); 
       }
     })
     .catch(error => {
       console.error('Error:', error);
       result.innerText = 'Error: ' + error.message;
+      result.scrollIntoView({ behavior: 'smooth' }); 
     })
     .finally(() => {
       spinner.style.display = 'none';

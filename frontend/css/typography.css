@@ -1,130 +1,93 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap');
 
-/* CSS Variables for easy theming */
-:root {
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
-  
-  --color-primary: #333333;
-  --color-secondary: #666666;
-  --color-accent-1: #007bff;
-  --color-accent-2: #00bcd4;
-  --color-background: #ffffff;
-  --color-background-alt: #f8f9fa;
-
-  --shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--header-font);
+  color: var(--primary-color);
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
-/* Base Typography */
-body {
-    font-family: var(--font-body);
-    line-height: 1.6;
-    color: var(--color-primary);
-    background-color: var(--color-background);
-  }
-  
-  /* Headings */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    line-height: 1.2;
-    margin-bottom: 1rem;
-  }
-  
-  h1 { 
-    font-size: calc(2rem + 1.5vw);
-    font-weight: 800;
-    background: linear-gradient(45deg, var(--color-accent-1), var(--color-accent-2));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    margin-bottom: 1.5rem;
-  }
-  
-  h2 { 
-    font-size: calc(1.5rem + 0.5vw);
-    font-weight: 700;
-    color: var(--color-accent-1);
-  }
-  
-  h3 { 
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-accent-2);
-  }
-  
-  h4 { 
-    font-size: 1.125rem;
-    font-weight: 600;
-  }
+h1 {
+  font-size: calc(2rem + 1.5vw);
+  font-weight: 800;
+  background: linear-gradient(45deg, var(--accent-color-1), var(--accent-color-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: calc(1.5rem + 0.5vw);
+  font-weight: 700;
+  color: var(--accent-color-1);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-color-2);
+}
+
+h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
 
 /* Body Text */
 p {
-    color: var(--color-secondary);
-    margin-bottom: 1.25rem;
-  }
+  color: var(--secondary-color);
+  margin-bottom: 1.25rem;
+}
 
 /* Inline Elements */
-strong { 
-    font-weight: 600;
-    color: var(--color-primary);
-  }
-  
-  em { font-style: italic; }
-  
-  a { 
-    color: var(--color-accent-1);
-    text-decoration: none;
-  }
-  
-  a:hover { text-decoration: underline; }  
+strong {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+em { font-style: italic; }
+
+a {
+  color: var(--accent-color-1);
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
 
 /* Lists */
 ul {
-    padding-left: 1.25rem;
-    margin-bottom: 1.25rem;
-  }
-  
-  li { margin-bottom: 0.5rem; }
-  
-  /* Form Elements */
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-  
-  input, textarea {
-    font-family: inherit;
-    font-size: 1rem;
-    padding: 0.5rem;
-    border: 1px solid var(--color-accent-1);
-    border-radius: 4px;
-  }
-  
-  input:focus, textarea:focus {
-    outline: none;
-    border-color: var(--color-accent-2);
-    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
-  }
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+li { margin-bottom: 0.5rem; }
+
+/* Form Labels */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
 
 /* Result Sections */
 #result > div {
-  background-color: var(--color-background-alt);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: var(--shadow-small);
-  transition: box-shadow 0.3s;
-}
-
-#result > div:hover {
-  box-shadow: var(--shadow-large);
-}
-
-/* Animation (Optional) */
+    background-color: var(--color-background-alt);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  
+  #result > div:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+/* Animation */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -138,20 +101,19 @@ h1, h2, #result > div {
 h2 { animation-delay: 0.2s; }
 #result > div { animation-delay: 0.4s; }
 
-/* Media Queries for Responsive Design */
+/* Media Queries */
 @media (max-width: 768px) {
-  h1 { font-size: calc(2rem + 1.5vw); }
+  h1 { font-size: calc(2rem + 1vw); }
   h2 { font-size: calc(1.25rem + 0.5vw); }
   h3 { font-size: calc(1.125rem + 0.25vw); }
 }
 
 @media (max-width: 480px) {
   body { font-size: 0.875rem; }
-  h1::after { width: 75%; }
   #result > div { padding: 1rem; }
 }
 
-/* Print Styles (Optional) */
+/* Print Styles */
 @media print {
   body { font-size: 12pt; line-height: 1.4; color: #000; }
   h1, h2, h3, h4 { color: #000; break-after: avoid; }

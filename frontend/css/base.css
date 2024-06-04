@@ -1,23 +1,46 @@
-body {
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: auto;
-}
-
-::placeholder {
-    color: #999999;
-    font-style: italic;
-}
-
+/* Base Styles */
 :root {
-  --primary-font: Arial, sans-serif;
-  --header-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --primary-font: 'Open Sans', Arial, sans-serif;
+  --header-font: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --primary-color: #333333;
   --secondary-color: #666666;
-  --accent-color: #007bff;
+  --accent-color-1: #007bff;
+  --accent-color-2: #00bcd4;
+  --background-color: #f4f4f9;
+  --placeholder-color: #999999;
+}
+
+body {
+  font-family: var(--primary-font);
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: auto;
+  line-height: 1.6;
+}
+
+/* Placeholder Styles */
+::placeholder {
+  color: var(--placeholder-color);
+  font-style: italic;
+}
+
+/* Form Elements */
+input, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  /* border: 1px solid var(--secondary-color); */
+  border-radius: 4px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  /* border-color: var(--accent-color-1); */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }

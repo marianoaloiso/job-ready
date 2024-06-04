@@ -13,11 +13,13 @@
 
 .upload-section,
 .job-description-section {
-    margin-bottom: 2em;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #f1f1f1; /* Slightly different background color */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    border: 1px solid #e0e0e0; /* Subtle border to differentiate */
+    transition: box-shadow 0.3s, border-color 0.3s;
 }
 
 .upload-section h2,

@@ -1,17 +1,16 @@
-input[type="text"], textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 'Arial', sans-serif;
-}
-
-textarea {
-    height: 200px;
-    resize: vertical;
-}
+input, textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-color-1);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+  }
 
 button {
     background-color: #007bff;
@@ -91,4 +90,47 @@ button:disabled:active {
 .api-key-input input:focus {
     border-color: #007BFF;
     outline: none;
+}
+
+.pdf-upload {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.upload-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-primary, #007BFF); /* Use your primary color */
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.upload-button:hover {
+    background-color: var(--color-primary-dark, #0056b3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-button:active {
+    background-color: var(--color-primary-darker, #004494); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pdf-upload input[type="file"] {
+    display: none;
+}
+
+/* Styles for the button after a file is uploaded */
+.upload-button.uploaded {
+    background-color: var(--color-success, #28a745);
+    cursor: default;
+}
+
+.upload-button.uploaded:hover {
+    background-color: var(--color-success, #28a745); 
+    box-shadow: none;
 }
